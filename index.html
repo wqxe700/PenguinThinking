@@ -7,10 +7,10 @@
 <meta content="text/html; charset=gb2312" http-equiv="Content-Type">
 <title>PenguinThinking</title>
 <style type="text/css">
-/* ========== »ù´¡ ========== */
+/* ========== åŸºç¡€ ========== */
 * { margin: 0; padding: 0; }
 
-/* ========== ²à±ßÀ¸±³¾°£¨µ×²¿´óÍ¼£© ========== */
+/* ========== ä¾§è¾¹æ èƒŒæ™¯ï¼ˆåº•éƒ¨å¤§å›¾ï¼‰ ========== */
 #sidebar-bg {
   position: fixed;
   right: 0;
@@ -19,28 +19,28 @@
   height: 1024px;
   z-index: 1;
 }
-/* IE6 Ä£Äâ¹Ì¶¨¶¨Î»£¨ÈçĞèÖ§³ÖÈ¡Ïû×¢ÊÍ£©
+/* IE6 æ¨¡æ‹Ÿå›ºå®šå®šä½ï¼ˆå¦‚éœ€æ”¯æŒå–æ¶ˆæ³¨é‡Šï¼‰
 * html #sidebar-bg {
   position: absolute;
   top: expression(documentElement.scrollTop + documentElement.clientHeight - 1024 + "px");
 }
 */
 
-/* ========== ÏîÄ¿Ãæ°å£¨XP·ç¸ñ×ó²à½¨ÒéÀ¸ÑùÊ½£¬ÖÃÓÚ²à±ßÀ¸ÉÏ·½£© ========== */
+/* ========== é¡¹ç›®é¢æ¿ï¼ˆXPé£æ ¼å·¦ä¾§å»ºè®®æ æ ·å¼ï¼Œç½®äºä¾§è¾¹æ ä¸Šæ–¹ï¼‰ ========== */
 #task-panel {
   position: fixed;
   right: 0;
-  top: 12px;       /* Ô­Ê¼ top:12 ¶ÔÓ¦±êÌâÎ»ÖÃ */
+  top: 12px;       /* åŸå§‹ top:12 å¯¹åº”æ ‡é¢˜ä½ç½® */
   width: 256px;
-  z-index: 10;     /* ±ØĞëÔÚ±³¾°Ö®ÉÏ */
+  z-index: 10;     /* å¿…é¡»åœ¨èƒŒæ™¯ä¹‹ä¸Š */
   font-family: Tahoma, "\5B8B\4F53", sans-serif;
   color: #000;
 }
 
-/* ±êÌâÇø£ºµçÄÔÍ¼±ê + ¡°ÏîÄ¿¡± */
+/* æ ‡é¢˜åŒºï¼šç”µè„‘å›¾æ ‡ + â€œé¡¹ç›®â€ */
 .task-header {
   height: 32px;
-  margin-bottom: 8px; /* ±êÌâºÍÁĞ±íµÄÎ¢Ğ¡¼ä¾à */
+  margin-bottom: 8px; /* æ ‡é¢˜å’Œåˆ—è¡¨çš„å¾®å°é—´è· */
   position: relative;
 }
 .task-header img {
@@ -53,23 +53,23 @@
 }
 .task-header span {
   position: absolute;
-  left: 121px;  /* 256 - 95 - 40(ÎÄ×Ö¿í¶È¹ÀËã) */
+  left: 121px;  /* 256 - 95 - 40(æ–‡å­—å®½åº¦ä¼°ç®—) */
   top: 8px;
   font-family: "\7B49\7EBF", Tahoma, sans-serif;
   font-size: 14px;
   font-weight: bold;
 }
 
-/* Á´½ÓÁĞ±í£¨×Ô¶¯´ÓÉÏµ½ÏÂ£¬½ô´ÕÅÅÁĞ£© */
+/* é“¾æ¥åˆ—è¡¨ï¼ˆè‡ªåŠ¨ä»ä¸Šåˆ°ä¸‹ï¼Œç´§å‡‘æ’åˆ—ï¼‰ */
 .task-list {
   list-style: none;
   margin: 0;
-  padding: 0 10px; /* ×óÓÒÁôÒ»µã±ß¾à */
+  padding: 0 10px; /* å·¦å³ç•™ä¸€ç‚¹è¾¹è· */
 }
 .task-item {
   height: 20px;
   line-height: 20px;
-  margin: 0;        /* XP·ç¸ñ£ºÎŞ¶îÍâ¼ä¾à£¬ÍêÈ«½ô´Õ */
+  margin: 0;        /* XPé£æ ¼ï¼šæ— é¢å¤–é—´è·ï¼Œå®Œå…¨ç´§å‡‘ */
   overflow: hidden;
   zoom: 1;
 }
@@ -80,18 +80,18 @@
   padding: 0 2px;
   cursor: pointer;
 }
-/* XP Luna ĞüÍ££ºÀ¶µ×°××Ö */
+/* XP Luna æ‚¬åœï¼šè“åº•ç™½å­— */
 .task-link:hover {
   background-color: #3169C6;
   color: #fff;
 }
 
-/* ÂÌÉ«¼ÌĞøÍ¼±ê£¨green-pass£© */
+/* ç»¿è‰²ç»§ç»­å›¾æ ‡ï¼ˆgreen-passï¼‰ */
 .task-icon {
   float: left;
   width: 20px;
   height: 20px;
-  margin-right: 4px; /* Í¼±êºÍÎÄ×ÖµÄ¼ä¾à */
+  margin-right: 4px; /* å›¾æ ‡å’Œæ–‡å­—çš„é—´è· */
 }
 .task-icon img {
   border: 0;
@@ -99,17 +99,17 @@
   height: 20px;
   vertical-align: middle;
 }
-/* ÏîÄ¿ÎÄ×Ö£¨×Ô¶¯¶ÔÆë£© */
+/* é¡¹ç›®æ–‡å­—ï¼ˆè‡ªåŠ¨å¯¹é½ï¼‰ */
 .task-text {
   display: block;
-  margin-left: 24px; /* 20pxÍ¼±ê + 4px¼ä¾à£¬±£Ö¤ËùÓĞÎÄ×Ö×ó±ßÔµ¶ÔÆë */
+  margin-left: 24px; /* 20pxå›¾æ ‡ + 4pxé—´è·ï¼Œä¿è¯æ‰€æœ‰æ–‡å­—å·¦è¾¹ç¼˜å¯¹é½ */
   font-size: 12px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* ========== µ×²¿ÔªËØ ========== */
+/* ========== åº•éƒ¨å…ƒç´  ========== */
 .footer-penguin {
   position: fixed;
   right: 0;
@@ -138,50 +138,50 @@
 </head>
 <body>
 
-<!-- ²à±ßÀ¸±³¾° -->
+<!-- ä¾§è¾¹æ èƒŒæ™¯ -->
 <img src="yqj-blue-sidebar.png" id="sidebar-bg">
 
-<!-- ÏîÄ¿Ãæ°å£¨XP ½¨ÒéÀ¸·ç¸ñ£© -->
+<!-- é¡¹ç›®é¢æ¿ï¼ˆXP å»ºè®®æ é£æ ¼ï¼‰ -->
 <div id="task-panel">
   <div class="task-header">
     <img src="interneted-computer.png" alt="PC">
-    <span>µ¼º½ÖÁ</span>
+    <span>å¯¼èˆªè‡³</span>
   </div>
   <ul class="task-list">
     <li class="task-item">
-      <a href="index.htm" class="task-link" title="ÕâÊÇÒ»¸ö¡°ÎÒÃÇµÄºóÊÒÎ¬»ù¡±ÍøÕ¾&#10;ÓÉlitianle114514Ö÷µ¼±àĞ´¼æÈÎÖ÷±à£¬wqxe700£¨Õ¾³¤£©ÍøÕ¾¿ª·¢,µ¥»÷ÅÔ±ßµÄ°´Å¥³ö·¢">
+      <a href="index.htm" class="task-link" title="è¿™æ˜¯ä¸€ä¸ªâ€œæˆ‘ä»¬çš„åå®¤ç»´åŸºâ€ç½‘ç«™&#10;ç”±litianle114514ä¸»å¯¼ç¼–å†™å…¼ä»»ä¸»ç¼–ï¼Œwqxe700ï¼ˆç«™é•¿ï¼‰ç½‘ç«™å¼€å‘,å•å‡»æ—è¾¹çš„æŒ‰é’®å‡ºå‘">
         <span class="task-icon"><img src="green-pass.png" alt=""></span>
         <span class="task-text">OURbackrooms'WIKI</span>
       </a>
     </li>
     <li class="task-item">
-      <a href="about:blank" class="task-link" title="Ò»¸ö°ïÖúÄúÔÚÀëÏß×´Ì¬ÏÂÈÔ¿É°²È«¡¢¸ßĞ§ÂÊµØ½«Êı¾İ±¸·İ»òÍ¬²½ÖÁÆäËüÉè±¸µÄÏîÄ¿£¬ËüÖ§³ÖMicrosoft Windows XP">
+      <a href="about:blank" class="task-link" title="ä¸€ä¸ªå¸®åŠ©æ‚¨åœ¨ç¦»çº¿çŠ¶æ€ä¸‹ä»å¯å®‰å…¨ã€é«˜æ•ˆç‡åœ°å°†æ•°æ®å¤‡ä»½æˆ–åŒæ­¥è‡³å…¶å®ƒè®¾å¤‡çš„é¡¹ç›®ï¼Œå®ƒæ”¯æŒMicrosoft Windows XP">
         <span class="task-icon"><img src="green-pass.png" alt=""></span>
         <span class="task-text">PenguinBackupFile</span>
       </a>
     </li>
     <li class="task-item">
-      <a href="AndroidRoms.htm" class="task-link" title="ÕâÀï¿ÉÒÔÕÒµ½ÄãÏëÒªµÄ°²×¿Ë¢»ú°ü&#10¿ÉÒÔÉêÇëË¢»ú°ü£¬ÎªÄúµÄÀÏÉè±¸ÑÓ³ÙÉúÃüÖÜÆÚ">
+      <a href="AndroidRoms.htm" class="task-link" title="è¿™é‡Œå¯ä»¥æ‰¾åˆ°ä½ æƒ³è¦çš„å®‰å“åˆ·æœºåŒ…&#10å¯ä»¥ç”³è¯·åˆ·æœºåŒ…ï¼Œä¸ºæ‚¨çš„è€è®¾å¤‡å»¶è¿Ÿç”Ÿå‘½å‘¨æœŸ">
         <span class="task-icon"><img src="green-pass.png" alt=""></span>
         <span class="task-text">AndroidRoms</span>
       </a>
     </li>
     <li class="task-item">
-      <a href="dairy.htm" class="task-link" title="Õ¾³¤µÄÈÕ¼Ç">
+      <a href="dairy.htm" class="task-link" title="ç«™é•¿çš„æ—¥è®°">
         <span class="task-icon"><img src="green-pass.png" alt=""></span>
-        <span class="task-text">PenguinÈÕ¼Ç</span>
+        <span class="task-text">Penguinæ—¥è®°</span>
       </a>
     </li>
     <li class="task-item">
-      <a href="helpme.htm" class="task-link" title="¾èÔùÎÒÃÇ">
+      <a href="helpme.htm" class="task-link" title="æèµ æˆ‘ä»¬">
         <span class="task-icon"><img src="green-pass.png" alt=""></span>
-        <span class="task-text">ÂòÎÒÃÇÒ»±­¿§·È</span>
+        <span class="task-text">ä¹°æˆ‘ä»¬ä¸€æ¯å’–å•¡</span>
       </a>
     </li>
     <li class="task-item">
-      <a href="shop.htm" class="task-link" title="ÕâÀïÊÇÕ¾³¤µÄÊµÎïĞ¡µê£¬Í¨¹ıÏĞÓã¡¢Æ´¶à¶àµÈ·½Ê½ÊÛÂô&#10´ËÒ³Ö÷ÒªµÄ×÷ÓÃÊÇÏê¾¡µÄ²úÆ·½éÉÜ">
+      <a href="shop.htm" class="task-link" title="è¿™é‡Œæ˜¯ç«™é•¿çš„å®ç‰©å°åº—ï¼Œé€šè¿‡é—²é±¼ã€æ‹¼å¤šå¤šç­‰æ–¹å¼å”®å–&#10æ­¤é¡µä¸»è¦çš„ä½œç”¨æ˜¯è¯¦å°½çš„äº§å“ä»‹ç»">
         <span class="task-icon"><img src="earth-computer.png" alt=""></span>
-        <span class="task-text">ÉÌµê</span>
+        <span class="task-text">å•†åº—</span>
       </a>
     </li>
 
@@ -189,24 +189,24 @@
 
 
     
-    <!-- ========== ĞÂÔöÏîÄ¿£º¸´ÖÆÏÂÃæÕâ¶Î£¬¸Ä href ºÍÎÄ×Ö¼´¿É ========== -->
+    <!-- ========== æ–°å¢é¡¹ç›®ï¼šå¤åˆ¶ä¸‹é¢è¿™æ®µï¼Œæ”¹ href å’Œæ–‡å­—å³å¯ ========== -->
     <!--
     <li class="task-item">
-      <a href="newpage.htm" class="task-link" title="ÃèÊö">
+      <a href="newpage.htm" class="task-link" title="æè¿°">
         <span class="task-icon"><img src="green-pass.png" alt=""></span>
-        <span class="task-text">ĞÂÏîÄ¿</span>
+        <span class="task-text">æ–°é¡¹ç›®</span>
       </a>
     </li>
     -->
   </ul>
 </div>
 
-<!-- µ×²¿ -->
+<!-- åº•éƒ¨ -->
 <a href="contact.htm" class="contact-me">
-  <img src="user-available.png" border="0" width="16" height="16" title="ÁªÏµÎÒ£¨Í¨¹ıINTERNET£©">
+  <img src="user-available.png" border="0" width="16" height="16" title="è”ç³»æˆ‘ï¼ˆé€šè¿‡INTERNETï¼‰">
 </a>
 <img src="penguin.png" class="footer-penguin">
-<b class="footer-copy">PenguinThinkingÊÇ¸öÈË¿ª·¢Õßwqxe700µÄ¹Ù·½ÍøÕ¾</b>
+<b class="footer-copy">PenguinThinkingæ˜¯ä¸ªäººå¼€å‘è€…wqxe700çš„å®˜æ–¹ç½‘ç«™</b>
 
 </body>
 </html>
