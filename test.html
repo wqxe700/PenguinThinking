@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--[if IE]>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<![endif]-->
+<html>
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="Content-Type">
+<title>PenguinThinking</title>
+<style type="text/css">
+/* ========== 基础 ========== */
+* { margin: 0; padding: 0; }
+
+/* ========== 侧边栏背景（底部大图） ========== */
+#sidebar-bg {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 256px;
+  height: 1024px;
+  z-index: 1;
+}
+/* IE6 模拟固定定位（如需支持取消注释）
+* html #sidebar-bg {
+  position: absolute;
+  top: expression(documentElement.scrollTop + documentElement.clientHeight - 1024 + "px");
+}
+*/
+
+/* ========== 项目面板（XP风格左侧建议栏样式，置于侧边栏上方） ========== */
+#task-panel {
+  position: fixed;
+  right: 0;
+  top: 12px;       /* 原始 top:12 对应标题位置 */
+  width: 256px;
+  z-index: 10;     /* 必须在背景之上 */
+  font-family: Tahoma, "\5B8B\4F53", sans-serif;
+  color: #000;
+}
+
+/* 标题区：电脑图标 + “项目” */
+.task-header {
+  height: 32px;
+  margin-bottom: 8px; /* 标题和列表的微小间距 */
+  position: relative;
+}
+.task-header img {
+  position: absolute;
+  left: 84px;   /* 256 - 140 - 32 */
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border: 0;
+}
+.task-header span {
+  position: absolute;
+  left: 121px;  /* 256 - 95 - 40(文字宽度估算) */
+  top: 8px;
+  font-family: "\7B49\7EBF", Tahoma, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* 链接列表（自动从上到下，紧凑排列） */
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 10px; /* 左右留一点边距 */
+}
+.task-item {
+  height: 20px;
+  line-height: 20px;
+  margin: 0;        /* XP风格：无额外间距，完全紧凑 */
+  overflow: hidden;
+  zoom: 1;
+}
+.task-link {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  padding: 0 2px;
+  cursor: pointer;
+}
+/* XP Luna 悬停：蓝底白字 */
+.task-link:hover {
+  background-color: #3169C6;
+  color: #fff;
+}
+
+/* 绿色继续图标（green-pass） */
+.task-icon {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-right: 4px; /* 图标和文字的间距 */
+}
+.task-icon img {
+  border: 0;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+/* 项目文字（自动对齐） */
+.task-text {
+  display: block;
+  margin-left: 24px; /* 20px图标 + 4px间距，保证所有文字左边缘对齐 */
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ========== 底部元素 ========== */
+.footer-penguin {
+  position: fixed;
+  right: 0;
+  bottom: 10px;
+  width: 256px;
+  height: 128px;
+  border: 0;
+  z-index: 9999;
+}
+.footer-copy {
+  position: fixed;
+  right: 300px;
+  bottom: 10px;
+  color: #808080;
+  font-family: "\5FAE\8F6F\96C5\9ED1", Tahoma, sans-serif;
+  font-size: 11px;
+  z-index: 9992;
+}
+.contact-me {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  z-index: 9999;
+}
+</style>
+</head>
+<body>
+
+<!-- 侧边栏背景 -->
+<img src="yqj-blue-sidebar.png" id="sidebar-bg">
+
+<!-- 项目面板（XP 建议栏风格） -->
+<div id="task-panel">
+  <div class="task-header">
+    <img src="interneted-computer.png" alt="PC">
+    <span>导航至</span>
+  </div>
+  <ul class="task-list">
+    <li class="task-item">
+      <a href="index.htm" class="task-link" title="这是一个“我们的后室维基”网站&#10;由litianle114514主导编写兼任主编，wqxe700（站长）网站开发,单击旁边的按钮出发">
+        <span class="task-icon"><img src="green-pass.png" alt=""></span>
+        <span class="task-text">OURbackrooms'WIKI</span>
+      </a>
+    </li>
+    <li class="task-item">
+      <a href="about:blank" class="task-link" title="一个帮助您在离线状态下仍可安全、高效率地将数据备份或同步至其它设备的项目，它支持Microsoft Windows XP">
+        <span class="task-icon"><img src="green-pass.png" alt=""></span>
+        <span class="task-text">PenguinBackupFile</span>
+      </a>
+    </li>
+    <li class="task-item">
+      <a href="AndroidRoms.htm" class="task-link" title="这里可以找到你想要的安卓刷机包&#10可以申请刷机包，为您的老设备延迟生命周期">
+        <span class="task-icon"><img src="green-pass.png" alt=""></span>
+        <span class="task-text">AndroidRoms</span>
+      </a>
+    </li>
+    <li class="task-item">
+      <a href="dairy.htm" class="task-link" title="站长的日记">
+        <span class="task-icon"><img src="green-pass.png" alt=""></span>
+        <span class="task-text">Penguin日记</span>
+      </a>
+    </li>
+    <li class="task-item">
+      <a href="helpme.htm" class="task-link" title="捐赠我们">
+        <span class="task-icon"><img src="green-pass.png" alt=""></span>
+        <span class="task-text">买我们一杯咖啡</span>
+      </a>
+    </li>
+    <li class="task-item">
+      <a href="shop.htm" class="task-link" title="这里是站长的实物小店，通过闲鱼、拼多多等方式售卖&#10此页主要的作用是详尽的产品介绍">
+        <span class="task-icon"><img src="earth-computer.png" alt=""></span>
+        <span class="task-text">商店</span>
+      </a>
+    </li>
+
+
+
+
+    
+    <!-- ========== 新增项目：复制下面这段，改 href 和文字即可 ========== -->
+    <!--
+    <li class="task-item">
+      <a href="newpage.htm" class="task-link" title="描述">
+        <span class="task-icon"><img src="green-pass.png" alt=""></span>
+        <span class="task-text">新项目</span>
+      </a>
+    </li>
+    -->
+  </ul>
+</div>
+
+<!-- 底部 -->
+<a href="contact.htm" class="contact-me">
+  <img src="user-available.png" border="0" width="16" height="16" title="联系我（通过INTERNET）">
+</a>
+<img src="penguin.png" class="footer-penguin">
+<b class="footer-copy">PenguinThinking是个人开发者wqxe700的官方网站</b>
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<!--[if IE]>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<![endif]-->
+<html>
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="Content-Type">
+<title>PenguinThinking</title>
+<style type="text/css">
+/* ========== 基础 ========== */
+* { margin: 0; padding: 0; }
+
+/* ========== 侧边栏背景（底部大图） ========== */
+#sidebar-bg {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 256px;
+  height: 1500px;
+  z-index: 1;
+}
+
+/* ========== 折叠面板容器 ========== */
+#task-panel {
+  position: fixed;
+  right: 10px;        /* 距侧边栏右边缘留白，使其呈现"白色方框"效果 */
+  top: 12px;
+  width: 236px;       /* 256 - 左右各10px留白 = 白色方框宽度 */
+  z-index: 10;
+  font-family: Tahoma, "\5B8B\4F53", sans-serif;
+  color: #000;
+}
+
+/* 折叠状态：白色方框，内部用 foldbg.png 填充（拉伸） */
+.fold-box {
+  background: #fff url('foldbg.png') left top repeat;
+  /* 拉伸填充：现代浏览器用 cover，IE6/7 用 filter（见下） */
+  background-size: 100% 100%;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+}
+/* IE6/7 背景拉伸兼容 */
+* html .fold-box {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='foldbg.png', sizingMethod='scale');
+}
+
+/* ========== 标题栏（折叠/展开的把手） ========== */
+.fold-header {
+  position: relative;
+  height: 32px;
+  line-height: 32px;
+  cursor: pointer;
+  overflow: hidden;
+  zoom: 1;
+}
+/* 标题栏右侧的折叠/展开图标 */
+.fold-toggle {
+  float: right;
+  width: 16px;
+  height: 16px;
+  margin: 8px 6px 0 0;  /* 垂直居中： (32-16)/2 = 8 */
+  border: 0;
+  /* 折叠时显示默认朝向；展开时通过 .open 反转 */
+}
+/* 展开状态下反转 fold.png（180度） */
+.open .fold-toggle {
+  /* 现代浏览器 */
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+/* IE6/7/8 翻转兼容：使用滤镜 */
+* html .open .fold-toggle,
+*+html .open .fold-toggle {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+}
+
+/* 标题栏内的图标（电脑图标），位于方框左侧 */
+.fold-header .header-icon {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin: 6px 4px 0 6px;  /* 垂直居中：(32-20)/2 = 6 */
+  border: 0;
+  vertical-align: middle;
+}
+/* 标题文字：在图标的左侧 → 即文字在最左，图标紧跟其右
+   由于要求"文字在图标左"，这里把文字放前面、图标放后面(float:right) */
+.fold-header .header-text {
+  float: left;
+  font-family: "\7B49\7EBF", Tahoma, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 2px;
+}
+
+/* ========== 展开主体（"日"字形） ========== */
+.fold-body {
+  display: none;           /* 默认折叠，不显示 */
+  background: transparent;
+}
+.open .fold-body {
+  display: block;          /* 展开时显示 */
+}
+/* 展开状态下，整个方框改用 foldopenbg.png 填充 */
+.open.fold-box,
+#task-panel.open .fold-box {
+  background: #fff url('foldopenbg.png') left top repeat;
+  background-size: 100% 100%;
+}
+* html .open.fold-box {
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='foldopenbg.png', sizingMethod='scale');
+}
+
+/* 中间横线：分隔标题区与选项区，形成"日"字 */
+.fold-separator {
+  height: 2px;
+  background: #b5b5b5;     /* XP 灰色分隔线 */
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #808080;
+  margin: 0 4px;
+}
+
+/* ========== 项目列表（自动从上到下，紧凑 XP 风格） ========== */
+.project-list {
+  list-style: none;
+  margin: 0;
+  padding: 2px 6px;        /* 上下留一点，让高度可随内容动态调节 */
+}
+.project-item {
+  height: 20px;
+  line-height: 20px;
+  margin: 0;
+  overflow: hidden;
+  zoom: 1;
+}
+.project-link {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  padding: 0 2px;
+  cursor: pointer;
+}
+/* XP Luna 悬停：蓝底白字 */
+.project-link:hover {
+  background-color: #3169C6;
+  color: #fff;
+}
+
+/* 绿色继续图标（green-pass），位于每项左侧 */
+.project-icon {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+}
+.project-icon img {
+  border: 0;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+/* 项目文字（自动对齐，左边缘统一） */
+.project-text {
+  display: block;
+  margin-left: 24px;       /* 20px图标 + 4px间距 */
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ========== 底部元素 ========== */
+.footer-penguin {
+  position: fixed;
+  right: 0;
+  bottom: 10px;
+  width: 256px;
+  height: 128px;
+  border: 0;
+  z-index: 9999;
+}
+.footer-copy {
+  position: fixed;
+  right: 300px;
+  bottom: 10px;
+  color: #808080;
+  font-family: "\5FAE\8F6F\96C5\9ED1", Tahoma, sans-serif;
+  font-size: 11px;
+  z-index: 9999;
+}
+.contact-me {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  z-index: 9999;
+}
+</style>
+</head>
+<body>
+
+<!-- 侧边栏背景 -->
+<img src="yqj-blue-sidebar.png" id="sidebar-bg">
+
+<!-- ============ 项目面板（可折叠，"日"字形展开） ============ -->
+<div id="task-panel" class="fold-box">
+  <!-- 标题栏：点击切换折叠/展开（无动画） -->
+  <div class="fold-header" onclick="toggleFold(this)">
+    <span class="header-text">项目</span>
+    <img src="interneted-computer.png" alt="PC" class="header-icon">
+    <img src="fold.png" alt="" class="fold-toggle">
+  </div>
+
+  <!-- 分隔横线（"日"字中间一横） -->
+  <div class="fold-separator"></div>
+
+  <!-- 展开主体：项目（与"项目"同级） + 子项目 -->
+  <div class="fold-body">
+    <ul class="project-list">
+
+      <!-- ===== 项目：OURbackrooms'WIKI（带一组子项目） ===== -->
+      <li class="project-item">
+        <a href="index.htm" class="project-link" title="这是一个“我们的后室维基”网站&#10;由litianle114514主导编写兼任主编，wqxe700（站长）网站开发">
+          <span class="project-icon"><img src="green-pass.png" alt=""></span>
+          <span class="project-text">OURbackrooms'WIKI</span>
+        </a>
+      </li>
+      <!-- 子项目（每个项目下的一级，不能有二级菜单） -->
+
+      <!-- ===== 项目：PenguinBackupFile ===== -->
+      <li class="project-item">
+        <a href="about:blank" class="project-link" title="一个帮助您在离线状态下仍可安全、高效率地将数据备份或同步至其它设备的项目&#10;它支持Microsoft Windows XP">
+          <span class="project-icon"><img src="green-pass.png" alt=""></span>
+          <span class="project-text">PenguinBackupFile</span>
+        </a>
+      </li>
+
+      <!-- ========== 新增【项目】或【子项目】：复制下面任意一段即可 ========== -->
+      <!--
+        规则：
+        - 项目（与"项目"同级）：直接放在对应项目名下方即可
+        - 子项目（某个项目下的子项）：放在该项目 <li> 的紧后面
+        - 每个项目 / 子项目都是【单一层级】，不再有二级菜单
+      -->
+
+    </ul>
+  </div>
+</div>
+
+<!-- 底部 -->
+<a href="contact.htm" class="contact-me">
+  <img src="user-available.png" border="0" width="16" height="16" title="联系我（通过INTERNET）">
+</a>
+<img src="penguin.png" class="footer-penguin">
+<b class="footer-copy">PenguinThinking是个人开发者wqxe700的官方网站</b>
+
+<script type="text/javascript">
+/* 折叠/展开切换（无动画，直接切换 class） */
+function toggleFold(el) {
+  var panel = el;
+  while (panel && panel.id !== 'task-panel') {
+    panel = panel.parentNode;
+  }
+  if (!panel) { return; }
+  /* 检测当前是否展开 */
+  var hasOpen = panel.className.indexOf('open') !== -1;
+  if (hasOpen) {
+    panel.className = panel.className.replace(/\s*open\s*/g, '');
+  } else {
+    panel.className = panel.className + ' open';
+  }
+}
+</script>
+
+</body>
+</html>

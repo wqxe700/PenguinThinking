@@ -1,0 +1,115 @@
+<html>
+<head>
+<meta
+content="text/html; charset=gb2312"
+http-equiv="Content-Type">
+<title>
+PenguinThinking</title>
+</head>
+<body>
+
+
+<p>
+<img
+border="0"
+height="32"
+src="interneted-computer.png"
+style="position: fixed; right: 140; top: 12; z-index: 9999;"
+width="32"><font
+face="等线"
+style="position: fixed; right: 95; top: 20; z-index: 9999;">项目</font>
+</p>
+
+
+
+
+<p>
+<font
+face="等线"
+style="position: fixed; right: 40; top: 50; z-index: 9999;"
+title="这是一个“我们的后室维基”网站&lt;\n&gt;由litianle114514主导编写兼任主编，wqxe700（站长）网站开发,单击旁边的按钮出发"> OURbackrooms&#39;WIKI</font>
+</p>
+
+
+
+
+<a href="index.htm"><img
+border="0"
+height="20"
+src="green-pass.png"
+style="position: fixed; right: 185; top: 48; z-index: 9999;"
+title="单击以访问此链接"
+width="20">
+</a>
+
+
+
+
+<p>
+<a href="about:blank"><img
+border="0"
+height="20"
+src="green-pass.png"
+style="position: fixed; top: 67; z-index: 9999; right: 185;"
+title="单击以访问此链接"
+width="20">
+</a>
+</p>
+
+
+
+
+<p>
+<font
+face="等线"
+style="position: fixed; right: 53; top: 68; z-index: 9999;"
+title="一个帮助您在离线状态下仍可安全、高效率地将数据备份或同步至其它设备的项目，它支持Microsoft Windows XP">PenguinBackupFile</font>
+</p>
+
+
+
+
+<p>
+<a href="contact.htm"><img
+border="0"
+height="16"
+src="user-available.png"
+style="position: fixed; left: 10; bottom: 10; z-index: 9999;"
+title="联系我（通过INTERNET）"
+width="16">
+</a>
+
+
+
+
+<img
+border="0"
+height="128"
+src="penguin.png"
+style="position: fixed; right: 0; bottom: 10; z-index: 9999;"
+width="256"><b><font
+color="#808080"
+face="微软雅黑"
+size="1"
+style="position: fixed; right: 300; bottom: 10; z-index: 9999;">PenguinThinking是个人开发者wqxe700的官方网站</font></b>
+</p>
+
+
+
+
+<p>
+<img
+border="0"
+height="1024"
+src="yqj-blue-sidebar.png"
+style="position: fixed; right: 0; bottom: 0; z-index: 1;"
+width="256">
+</p>
+
+
+
+
+<p>
+</p>
+</body>
+</html>
