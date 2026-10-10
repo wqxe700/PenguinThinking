@@ -7,10 +7,10 @@
 <meta content="text/html; charset=gb2312" http-equiv="Content-Type">
 <title>PenguinThinking</title>
 <style type="text/css">
-/* ========== 基础 ========== */
+
 * { margin: 0; padding: 0; }
 
-/* ========== 侧边栏背景（底部大图） ========== */
+
 #sidebar-bg {
   position: fixed;
   right: 0;
@@ -19,14 +19,14 @@
   height: 1024px;
   z-index: 1;
 }
-/* IE6 模拟固定定位（如需支持取消注释）
+/* IE6 模拟固定*/
 * html #sidebar-bg {
   position: absolute;
   top: expression(documentElement.scrollTop + documentElement.clientHeight - 1024 + "px");
 }
 */
 
-/* ========== 项目面板（XP风格左侧建议栏样式，置于侧边栏上方） ========== */
+/*项目面板 */
 #task-panel {
   position: fixed;
   right: 0;
@@ -37,10 +37,10 @@
   color: #000;
 }
 
-/* 标题区：电脑图标 + “项目” */
+/* 标题*/
 .task-header {
   height: 32px;
-  margin-bottom: 8px; /* 标题和列表的微小间距 */
+  margin-bottom: 8px; /* 标题和列表间距 */
   position: relative;
 }
 .task-header img {
@@ -53,23 +53,23 @@
 }
 .task-header span {
   position: absolute;
-  left: 121px;  /* 256 - 95 - 40(文字宽度估算) */
+  left: 121px; 
   top: 8px;
   font-family: "\7B49\7EBF", Tahoma, sans-serif;
   font-size: 14px;
   font-weight: bold;
 }
 
-/* 链接列表（自动从上到下，紧凑排列） */
+/* 链接列表 */
 .task-list {
   list-style: none;
   margin: 0;
-  padding: 0 10px; /* 左右留一点边距 */
+  padding: 0 10px; /* 左右边距 */
 }
 .task-item {
   height: 20px;
   line-height: 20px;
-  margin: 0;        /* XP风格：无额外间距，完全紧凑 */
+  margin: 0;        /* XP风格：完全紧凑 */
   overflow: hidden;
   zoom: 1;
 }
@@ -80,13 +80,13 @@
   padding: 0 2px;
   cursor: pointer;
 }
-/* XP Luna 悬停：蓝底白字 */
+/* 蓝底白字 */
 .task-link:hover {
   background-color: #3169C6;
   color: #fff;
 }
 
-/* 绿色继续图标（green-pass） */
+/*green-pass */
 .task-icon {
   float: left;
   width: 20px;
@@ -99,17 +99,17 @@
   height: 20px;
   vertical-align: middle;
 }
-/* 项目文字（自动对齐） */
+/*项目文字*/
 .task-text {
   display: block;
-  margin-left: 24px; /* 20px图标 + 4px间距，保证所有文字左边缘对齐 */
+  margin-left: 24px; /* 文字左边缘对齐 */
   font-size: 12px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* ========== 底部元素 ========== */
+/*底 */
 .footer-penguin {
   position: fixed;
   right: 0;
@@ -138,10 +138,10 @@
 </head>
 <body>
 
-<!-- 侧边栏背景 -->
+<!-- 侧栏背景 -->
 <img src="yqj-blue-sidebar.png" id="sidebar-bg">
 
-<!-- 项目面板（XP 建议栏风格） -->
+<!-- 项目面板XP风格 -->
 <div id="task-panel">
   <div class="task-header">
     <img src="interneted-computer.png" alt="PC">
@@ -189,7 +189,7 @@
 
 
     
-    <!-- ========== 新增项目：复制下面这段，改 href 和文字即可 ========== -->
+    <!-- ，改 href 和文字 ======加东西==== -->
     <!--
     <li class="task-item">
       <a href="newpage.htm" class="task-link" title="描述">
@@ -201,7 +201,7 @@
   </ul>
 </div>
 
-<!-- 底部 -->
+<!-- 底 -->
 <a href="contact.htm" class="contact-me">
   <img src="user-available.png" border="0" width="16" height="16" title="联系我（通过INTERNET）">
 </a>
